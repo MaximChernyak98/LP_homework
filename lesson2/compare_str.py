@@ -24,7 +24,7 @@ def compare_two_str(string1, string2):
 
 
 if __name__ == "__main__":
-    while input('Для начала работы введите Enter/ для завершения работы введите "хватит": ') != 'хватит':
+    while input('Для начала работы нажмите Enter/ для завершения работы введите "хватит": ') != 'хватит':
         str1 = get_user_str(1)
         str2 = get_user_str(2)
         print(compare_two_str(str1, str2))
