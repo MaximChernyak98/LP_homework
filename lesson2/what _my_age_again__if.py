@@ -14,8 +14,8 @@ def get_user_age():
         if entered_age < 0:
             print('Введите возраст в виде целого положительного числа')
             return 'Не выполнено'
-    except Exception:
-        print('Проверьте ввод, что-то пошло не так')
+    except ValueError:
+        print('Проверьте что ввели число')
         return 'Не выполнено'
 
     # search instruction for entered age

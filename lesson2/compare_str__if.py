@@ -15,6 +15,8 @@ def get_user_str(str_number):
         entered_str = input(
             f'Введите, пожалуйста, строку номер {str_number}: ')
         return entered_str
+    # Question for Mary: what could be wrong?
+    # I can't imagine what problems there might be
     except Exception:
         print('Проверьте ввод, что-то пошло не так')
         return 'Не выполнено'

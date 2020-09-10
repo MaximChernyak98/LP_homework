@@ -18,8 +18,8 @@ marks = [{'school_class': '4a', 'scores': [3, 4, 4, 5, 2]},
 mean_mark_total = []
 
 
-def calc_mean_mark(marks_list):
-    for class_number in marks_list:
+def calc_mean_mark(marks_dict):
+    for class_number in marks_dict:
         try:
             mean_mark = statistics.mean(class_number['scores'])
             # question for Mary - should I make new variable for print-function in one line?
@@ -27,8 +27,8 @@ def calc_mean_mark(marks_list):
             print(
                 f"Mean mark at {class_number['school_class']} - {mean_mark}")
             mean_mark_total.append(mean_mark)
-        except Exception:
-            print('Please check your marks dictionary')
+        except TypeError:
+            print('Please check your entered marks list')
     print(statistics.mean(mean_mark_total))
 
 
