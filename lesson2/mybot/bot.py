@@ -57,6 +57,7 @@ def planet_dialogue(update, context):
     else:
         update.message.reply_text('Planet not found')
         return
+    # calculate actual constellation fot planet
     planet_for_search.compute(date_now)
     constellation_text = ', '.join(ephem.constellation(planet_for_search))
     update.message.reply_text(
