@@ -9,7 +9,7 @@ import locale
 
 def print_date():
 
-    localw.now = date.datetime.now()
+    local.now = date.datetime.now()
     yesterday = now - date.timedelta(days=1)
     month_ago = now - date.timedelta(days=30)
     print(now)
