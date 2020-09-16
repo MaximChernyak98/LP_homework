@@ -18,7 +18,9 @@ def discounted(price, discount, max_discount=20):
             return price - (price * discount / 100)
     except ValueError:
         print('Введены некорректные числа')
+    except TypeError:
+        print('Введены некорректные данные')
 
 
 if __name__ == "__main__":
-    print(discounted('l', 1))
+    print(discounted([1, 1], [1, 1]))

@@ -18,8 +18,8 @@ def ask_user_1():
             if answer == 'Хорошо':
                 print('Ну и славно')
                 break
-            elif answer in answer_dict:
-                print(answer_dict[answer] + '\n')
+            else:
+                print(f'{answer_dict.get(answer, "Не могу тебе ничего ответить")}\n')
         except KeyboardInterrupt:
             # Question to Mary: keyboard interrupt didn't work from IDE, but work
             # from command line - it's all right?

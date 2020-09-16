@@ -17,8 +17,8 @@ def get_user_str(str_number):
         return entered_str
     # Question for Mary: what could be wrong?
     # I can't imagine what problems there might be
-    except Exception:
-        print('Проверьте ввод, что-то пошло не так')
+    except KeyboardInterrupt:
+        print('Прервано пользователем')
         return 'Не выполнено'
 
 

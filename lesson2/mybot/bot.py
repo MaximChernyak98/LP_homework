@@ -61,7 +61,7 @@ def planet_dialogue(update, context):
     planet_for_search.compute(date_now)
     constellation_text = ', '.join(ephem.constellation(planet_for_search))
     update.message.reply_text(
-        'This planet is now in constellations ' + constellation_text)
+        f'This planet is now in constellations {constellation_text}')
 
 
 def main():
