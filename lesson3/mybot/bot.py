@@ -10,6 +10,7 @@
 
 import logging
 import datetime
+import re
 
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
 import ephem
@@ -64,6 +65,29 @@ def planet_dialogue(update, context):
         'This planet is now in constellations ' + constellation_text)
 
 
+def wordcount_message(update, context):
+    user_message = update.message.text.split('/wordcount')[1].strip()
+    words_list = user_message.split(" ")
+    good_words = []
+    ban_words = []
+    for word in words_list:
+        word = re.sub('[, .!?]', '', word)
+        if word.isalpha():
+            good_words.append(word)
+        else:
+            ban_words.append(word)
+    if user_message:
+        num_words = len(good_words)
+        text_words = ''
+        # if num_words%2 дописать про склонение слов
+        update.message.reply_text(f'Введено {len(good_words)} слов')
+        if ban_words:
+            update.message.reply_text('Данные слова не засчитаны'
+                                      f'{", ".join(ban_words)}')
+    else:
+        update.message.reply_text('Введена пустая строка')
+
+
 def full_moon_dialogue(update, context):
     if update.message.text == 'Когда ближайшее полнолуние?':
         date_now = datetime.date.today().strftime("%Y/%m/%d")
@@ -78,6 +102,7 @@ def main():
     dp = mybot.dispatcher
     dp.add_handler(CommandHandler('Start', greet_user))
     dp.add_handler(CommandHandler('Planet', planet_dialogue))
+    dp.add_handler(CommandHandler('Wordcount', wordcount_message))
     dp.add_handler(MessageHandler(Filters.text, full_moon_dialogue))
     dp.add_handler(MessageHandler(Filters.text, talk_to_me))
     logging.info('Бот стартовал')
