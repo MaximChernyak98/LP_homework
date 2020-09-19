@@ -19,7 +19,8 @@ def ask_user_1():
                 print('Ну и славно')
                 break
             else:
-                print(f'{answer_dict.get(answer, "Не могу тебе ничего ответить")}\n')
+                default_answer = "Не могу тебе ничего ответить"
+                print(f'{answer_dict.get(answer, default_answer)}\n')
         except KeyboardInterrupt:
             # Question to Mary: keyboard interrupt didn't work from IDE, but work
             # from command line - it's all right?
